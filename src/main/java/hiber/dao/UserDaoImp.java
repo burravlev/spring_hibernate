@@ -1,4 +1,4 @@
-package hiber.dao;
+supackage hiber.dao;
 
 import hiber.model.Car;
 import hiber.model.User;
@@ -33,6 +33,6 @@ public class UserDaoImp implements UserDao {
         Query query = sessionFactory.getCurrentSession().createQuery("from User as user where user.car.model = :model and user.car.series = : series")
                 .setParameter("model", model)
                 .setParameter("series", series);
-        return (User) query.getResultList().get(0);
+        return (User) query.getSingleResult();
     }
 }
